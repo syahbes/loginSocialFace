@@ -1,7 +1,6 @@
 import Expo
 import React
 import ReactAppDependencyProvider
-import FacebookCore // <--- ADD THIS
 
 @UIApplicationMain
 public class AppDelegate: ExpoAppDelegate {
@@ -14,13 +13,6 @@ public class AppDelegate: ExpoAppDelegate {
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
   ) -> Bool {
-    // Initialize Facebook SDK
-    ApplicationDelegate.shared.application(
-      application,
-      didFinishLaunchingWithOptions: launchOptions
-    )
-
-    // Usual Expo React Native startup
     let delegate = ReactNativeDelegate()
     let factory = ExpoReactNativeFactory(delegate: delegate)
     delegate.dependencyProvider = RCTAppDependencyProvider()
@@ -46,19 +38,7 @@ public class AppDelegate: ExpoAppDelegate {
     open url: URL,
     options: [UIApplication.OpenURLOptionsKey: Any] = [:]
   ) -> Bool {
-    // Facebook SDK handling
-    let handledByFB = ApplicationDelegate.shared.application(
-      app,
-      open: url,
-      sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
-      annotation: options[UIApplication.OpenURLOptionsKey.annotation]
-    )
-
-    // React Native Linking
-    let handledByRN = RCTLinkingManager.application(app, open: url, options: options)
-
-    // Return true if handled by any
-    return handledByFB || handledByRN || super.application(app, open: url, options: options)
+    return super.application(app, open: url, options: options) || RCTLinkingManager.application(app, open: url, options: options)
   }
 
   // Universal Links
@@ -88,3 +68,4 @@ class ReactNativeDelegate: ExpoReactNativeFactoryDelegate {
 #endif
   }
 }
+

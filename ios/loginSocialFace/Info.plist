@@ -81,22 +81,20 @@
     <string>Automatic</string>
     <key>UIViewControllerBasedStatusBarAppearance</key>
     <false/>
-
-<key>CFBundleURLTypes</key>
-<array>
-  <dict>
-  <key>CFBundleURLSchemes</key>
-  <array>
-    <string>fb1020347106873760</string>
-  </array>
-  </dict>
-</array>
-<key>FacebookAppID</key>
-<string>1020347106873760</string>
-<key>FacebookClientToken</key>
-<string>3da027be5214074c134d2bad8f5c0bfc</string>
-<key>FacebookDisplayName</key>
-<string>APP-NAME</string>
-
-  </dict>
+    <key>CFBundleURLTypes</key>
+    <array>
+      <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>fb1020347106873760</string>
+        </array>
+      </dict>
+    </array>
+    <key>FacebookAppID</key>
+    <string>1020347106873760</string>
+    <key>FacebookClientToken</key>
+    <string>3da027be5214074c134d2bad8f5c0bfc</string>
+    <key>FacebookDisplayName</key>
+    <string>APP-NAME</string>
+    </dict>
 </plist>
